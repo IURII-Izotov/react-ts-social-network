@@ -2,3 +2,32 @@
     background: aquamarine;
     padding: 10px;
 }
+.newPost{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+}
+.textareaPost{
+    resize:none;
+    height: 200px;
+    width: 100%;
+    padding: 0;
+    border: none;
+}
+.sendTextPostButton{
+    cursor:pointer;
+    border: 1px solid black;
+    background: coral;
+    max-width: 100px;
+    min-width: 60px;
+    width: 100%;
+    height: 30px;
+    border-radius: 3px;
+    margin-top: 10px;
+    align-self: flex-end;
+}
+.sendTextPostButton:hover{
+    transition: 0.5s;
+    background: #bb3b3b;
+}

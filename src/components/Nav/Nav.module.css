@@ -1,4 +1,21 @@
 .nav{
     grid-area: nav;
     background: beige;
+
+}
+ul{
+    padding: 0;
+}
+.navList{
+    list-style-type:none;
+    margin-bottom: 8px;
+}
+.navList .link{
+    font-family: Bahnschrift;
+    text-decoration: none;
+    color:blue;
+    text-transform: uppercase;
+}
+.link.active{
+    color:indianred;
 }

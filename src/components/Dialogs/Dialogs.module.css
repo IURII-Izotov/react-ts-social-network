@@ -1,0 +1,23 @@
+.dialogs{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.dialog{
+    font-family: "Arial Black";
+}
+.linkDialog{
+    text-decoration:none;
+}
+.linkDialog.active{
+    color: #bb3b3b;
+}
+.dialog.active{
+    color: #bb3b3b;
+}
+.dialogsItems{
+    margin-right: 20px;
+}
+.message{
+    font-family: Bahnschrift;
+}

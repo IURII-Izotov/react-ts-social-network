@@ -4,6 +4,10 @@
     align-items: center;
     width: 1100px;
 }
+.postWrap{
+    display: flex;
+    flex-direction: column;
+}
 .text{
     width: 600px;
     word-break: break-all;

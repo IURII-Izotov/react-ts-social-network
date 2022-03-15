@@ -1,0 +1,33 @@
+.background{
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+.imgBackground{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 50%;
+    transform: translate(0, -50%)
+}
+
+.accountInfo{
+    display: flex;
+    flex-direction: row;
+    background: coral;
+}
+.accountImg{
+    max-height: 200px;
+}
+.accountDetails span{
+    font-family: Bahnschrift;
+    display:block;
+    margin-bottom: 3px;
+    margin-top:3px;
+}
+.accountDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
