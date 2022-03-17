@@ -6,7 +6,10 @@ export function Profile(props:any) {
     return (
         <>
            <ProfileInfo/>
-            <MyPosts postsData={props.postsData}/>
+            <MyPosts postsData={props.postsData}
+                     addPost={props.addPost}
+                     updatePostText={props.updatePostText}
+                     newPostText={props.newPostText}/>
         </>
     )
 }

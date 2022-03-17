@@ -8,14 +8,16 @@ import { Route, Routes, Link} from 'react-router-dom';
 
 
 function App(props:any) {
-
     return (
         <div className={style['app-wrapper']}>
             <Header/>
             <Nav/>
             <div className={style['app-wrapper-content']}>
             <Routes>
-                <Route path="/" element={<Profile postsData={props.state.profile.postsData}/>}/>
+                <Route path="/" element={<Profile postsData={props.state.profile.postsData}
+                                                  addPost={props.dispatch.addPost}
+                                                  updatePostText = {props.dispatch.updatePostText}
+                                                  newPostText={props.state.profile.newPostText}      />}/>
                 <Route path="/profile" element={<Profile postsData={props.state.profile.postsData}/>}/>
                 <Route path="/dialogs/*" element={<Dialogs dialogs ={props.state.dialogs.dialogsData} messages={props.state.dialogs.messagesData}/>}/>
             </Routes>
