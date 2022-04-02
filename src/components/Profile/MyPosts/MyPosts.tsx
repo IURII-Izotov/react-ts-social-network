@@ -1,6 +1,8 @@
 import React from 'react';
 import style from './MyPosts.module.css'
 import {Post} from "./Post/Post";
+import {addPostActionCreator, updatePostTextActionCreator} from "../../../redux/profile-reducer";
+
 
 
 export function MyPosts(props:any) {
@@ -9,12 +11,13 @@ export function MyPosts(props:any) {
     })
     let newPostElement = React.createRef<HTMLTextAreaElement>();
     let onClickChange = ()=>{
-            props.addPost();
+            props.dispatch(addPostActionCreator());
     }
     let onChangeText=()=>{
         if(newPostElement.current) {
             let valueTextArea = newPostElement.current.value;
-            props.updatePostText(valueTextArea);
+            props.dispatch(updatePostTextActionCreator(valueTextArea));
+
         }
     }
     return (

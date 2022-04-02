@@ -14,12 +14,13 @@ function App(props:any) {
             <Nav/>
             <div className={style['app-wrapper-content']}>
             <Routes>
-                <Route path="/" element={<Profile postsData={props.state.profile.postsData}
-                                                  addPost={props.dispatch.addPost}
-                                                  updatePostText = {props.dispatch.updatePostText}
-                                                  newPostText={props.state.profile.newPostText}      />}/>
-                <Route path="/profile" element={<Profile postsData={props.state.profile.postsData}/>}/>
-                <Route path="/dialogs/*" element={<Dialogs dialogs ={props.state.dialogs.dialogsData} messages={props.state.dialogs.messagesData}/>}/>
+                <Route path="/" element={<Profile postsData={props.store.getState().profile.postsData}
+                                                  dispatch={props.dispatch}
+                                                  newPostText={props.store.getState().newPostText} />}/>
+                <Route path="/profile" element={<Profile postsData={props.store.getState().profile.postsData}
+                                                         dispatch={props.dispatch}
+                                                         newPostText={props.store.getState().profile.newPostText}/>}/>
+                <Route path="/dialogs/*" element={<Dialogs dispatch = {props.dispatch} dialogs ={props.store.getState().dialogs}/>}/>
             </Routes>
             </div>
         </div>

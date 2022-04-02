@@ -7,8 +7,7 @@ export function Profile(props:any) {
         <>
            <ProfileInfo/>
             <MyPosts postsData={props.postsData}
-                     addPost={props.addPost}
-                     updatePostText={props.updatePostText}
+                     dispatch={props.dispatch}
                      newPostText={props.newPostText}/>
         </>
     )
