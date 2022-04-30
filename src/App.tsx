@@ -1,26 +1,27 @@
 import React from 'react';
 import style from './index.module.css'
-import {Header} from './components/Header/Header';
+
 import {Nav} from "./components/Nav/Nav";
-import {Profile} from "./components/Profile/Profile";
-import {Dialogs} from "./components/Dialogs/Dialogs";
-import { Route, Routes, Link} from 'react-router-dom';
+
+import { Route, Routes} from 'react-router-dom';
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
+import {UserContainer} from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 function App(props:any) {
+
     return (
         <div className={style['app-wrapper']}>
-            <Header/>
+            <HeaderContainer/>
             <Nav/>
             <div className={style['app-wrapper-content']}>
             <Routes>
-                <Route path="/" element={<Profile postsData={props.store.getState().profile.postsData}
-                                                  dispatch={props.dispatch}
-                                                  newPostText={props.store.getState().newPostText} />}/>
-                <Route path="/profile" element={<Profile postsData={props.store.getState().profile.postsData}
-                                                         dispatch={props.dispatch}
-                                                         newPostText={props.store.getState().profile.newPostText}/>}/>
-                <Route path="/dialogs/*" element={<Dialogs dispatch = {props.dispatch} dialogs ={props.store.getState().dialogs}/>}/>
+                <Route path="/profile" element={<ProfileContainer />}/>
+                <Route path="/profile/:userID" element={<ProfileContainer />}/>
+                <Route path="/dialogs/*" element={<DialogsContainer />}/>
+                <Route path="/users/*" element={<UserContainer/>}/>
             </Routes>
             </div>
         </div>

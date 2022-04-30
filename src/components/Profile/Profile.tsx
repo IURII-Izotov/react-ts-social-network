@@ -1,14 +1,15 @@
 import React from 'react';
-import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
+import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
 
-export function Profile(props:any) {
-    return (
-        <>
-           <ProfileInfo/>
-            <MyPosts postsData={props.postsData}
-                     dispatch={props.dispatch}
-                     newPostText={props.newPostText}/>
-        </>
-    )
-}
+
+export let Profile=(props:any)=>{
+
+        return (
+            <>
+                <ProfileInfo profile={props.profile}/>
+                <MyPostsContainer />
+            </>
+        )
+    }
+

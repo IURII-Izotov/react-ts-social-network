@@ -1,8 +1,16 @@
 .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     grid-area: header;
     background: aquamarine;
+    width: 100%;
+
 }
 .header-img{
     width: auto;
     height: 100%;
+}
+.loginBlock{
+justify-self: flex-start;
 }

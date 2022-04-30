@@ -11,17 +11,16 @@ export function MyPosts(props:any) {
     })
     let newPostElement = React.createRef<HTMLTextAreaElement>();
     let onClickChange = ()=>{
-            props.dispatch(addPostActionCreator());
+        props.addPost();
     }
     let onChangeText=()=>{
         if(newPostElement.current) {
             let valueTextArea = newPostElement.current.value;
-            props.dispatch(updatePostTextActionCreator(valueTextArea));
-
+            props.updateNewPostText(valueTextArea);
         }
     }
     return (
-            <div className={style.myPosts}>
+            <div id={props.id} className={style.myPosts}>
                 <div className={style.newPost}>
                     <textarea onChange={ onChangeText }
                               ref={newPostElement}
