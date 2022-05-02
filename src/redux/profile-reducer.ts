@@ -1,3 +1,6 @@
+import {userAPI} from "../api/api";
+import {followSuccess, setUserId, setUserProfile, toggleFollowingProgress} from "./users-reducer";
+
 let ADD_POST = 'ADD-POST'
 let UPDATE_POST_TEXT='UPDATE-POST-TEXT'
 
@@ -48,5 +51,20 @@ export let updatePostTextActionCreator = (valueTextArea:string)=>{
     return {
         type:UPDATE_POST_TEXT,
         valueTextArea:valueTextArea
+    }
+}
+export let getUserProfile = (id:number) => {
+    return (dispatch: any) => {
+        userAPI.getUserProfile(id).then((response: any) => {
+            dispatch(setUserProfile(response.data,id))
+        })
+        userAPI.getUserAunt()
+            .then((response:any )=> {
+                if(response.data.resultCode === 0 ){
+                    let id= response.data.data.id
+                    dispatch(setUserId(id));
+                }
+
+            })
     }
 }

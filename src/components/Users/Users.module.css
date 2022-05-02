@@ -3,4 +3,8 @@
 }
 .selectPage{
     color: red;
+    cursor: pointer;
+}
+.numberOfPage{
+    cursor: pointer;
 }

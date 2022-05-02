@@ -1,35 +1,28 @@
 import React, {JSXElementConstructor} from 'react';
-import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {MyPostsContainer} from "./MyPosts/MyPostsContainer";
-import axios from "axios";
+
 import {connect} from "react-redux";
-import {setUserId, setUserProfile} from "../../redux/users-reducer";
 import {Profile} from "./Profile";
 import {useLocation, useNavigate, useParams} from 'react-router-dom'
+import {getUserProfile} from "../../redux/profile-reducer";
 
 
 
 class ProfileContainer extends React.Component<any,any,any>{
+    userID:number = this.props.router.params.userID;
+    constructor(props:any) {
+        super(props);
+        this.state = {user: props.getUserProfile(this.userID)}
+    }
     componentDidMount(): void {
-        console.log(this.props)
 
-        let userID = this.props.router.params.userID;
-        if (!userID) {
-            userID=1;
+        if (!this.userID) {
+            this.props.getUserProfile(2);
+        }else{
+            this.props.getUserProfile(this.userID);
         }
-        axios.get<any>(`https://social-network.samuraijs.com/api/1.0//auth/me`, {
-            withCredentials: true
-        }).then((response:any )=> {
-            if(response.data.resultCode === 0 ){
-                let id= response.data.data.id
-                this.props.setUserId(id);
-            }
-            return axios.get<any>(`https://social-network.samuraijs.com/api/1.0/profile/${userID}`)
-        }).then((response: any) => {
-            this.props.setUserProfile(response.data);
-        })
-
-
+    }
+    updateUser(){
+        this.setState({user: this.props.getUserProfile(this.userID)})
     }
     render(): React.ReactNode{
         return (
@@ -63,4 +56,4 @@ export const withRouter = (Component: JSXElementConstructor<any>): JSXElementCon
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps,{setUserProfile,setUserId})(withRouter(ProfileContainer))
+export default connect(mapStateToProps,{getUserProfile})(withRouter(ProfileContainer))
